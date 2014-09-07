@@ -92,14 +92,13 @@ mysql_database "tonicdns_import_sql_dump" do
   action :query
 end
 
-if File.file?("/etc/.poweradmin_sql.imported") == false
-  mysql_database "alter_users_table" do
-    connection mysql_connection_info
-    database_name node["tonicdns"]["dbname"]
-    sql "ALTER TABLE users ADD use_ldap BOOLEAN NOT NULL;"
-    action :query
-    not_if {File.exists?("/etc/.tonicdns_sql.imported")}
-  end
+mysql_database "alter_users_table" do
+  connection mysql_connection_info
+  database_name node["tonicdns"]["dbname"]
+  sql "ALTER TABLE users ADD use_ldap BOOLEAN NOT NULL;"
+  not_if {File.exists?("/etc/.poweradmin_sql.imported")}
+  not_if {File.exists?("/etc/.tonicdns_sql.imported")}
+  action :query
 end
 
 #marker for sql import

@@ -4,10 +4,30 @@ driver_config:
   require_chef_omnibus: true
 
 platforms:
-  - name: ubuntu-12.04-i386
-  - name: centos-6.5-i386
-  - name: ubuntu-14.04-i386
-  - name: debian-7.6-i386
+  - name: centos-6.5
+    driver:
+      customize:
+        memory: 512
+      network:
+        - ["forwarded_port", {guest: 8080, host: 6581}]
+  - name: ubuntu-12.04
+    driver:
+      customize:
+        memory: 384
+      network:
+        - ["forwarded_port", {guest: 8080, host: 1281}]
+  - name: ubuntu-14.04
+    driver:
+      customize:
+        memory: 384
+      network:
+        - ["forwarded_port", {guest: 8080, host: 1481}]
+  - name: debian-7.6
+    driver:
+      customize:
+        memory: 384
+      network:
+        - ["forwarded_port", {guest: 8080, host: 7681}]
 
 suites:
   - name: default
