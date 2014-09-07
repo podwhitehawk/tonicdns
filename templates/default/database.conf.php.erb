@@ -1,0 +1,54 @@
+<?php
+/**
+ * Copyright (c) 2011 Cyso Managed Hosting < development [at] cyso . nl >
+ *
+ * This file is part of TonicDNS.
+ *
+ * TonicDNS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * TonicDNS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with TonicDNS.  If not, see <http://www.gnu.org/licenses/>.
+ */
+class PowerDnsConfig {
+	/**
+	 * DSN of the PowerDNS master database
+	 */
+	const DB_DSN = "mysql:dbname=<%= node["tonicdns"]["dbname"] %>;host=<%= node["tonicdns"]["hostname"] %>";
+	/**
+	 * Credentials for database user
+	 */
+	const DB_USER = "<%= node["tonicdns"]["username"] %>";
+	const DB_PASS = "<%= node["tonicdns"]["password"] %>";
+
+	/**
+	 * Relevant table names
+	 */
+	const DB_TEMPLATE_TABLE = "zone_templ";
+	const DB_TEMPLATE_RECORDS_TABLE = "zone_templ_records";
+	const DB_ZONE_TABLE = "domains";
+	const DB_RECORD_TABLE = "records";
+	const DB_USER_TABLE = "users";
+	const DB_TOKEN_TABLE = "tokens";
+
+	/**
+	 * Default DNS settings
+	 */
+	const DNS_DEFAULT_RECORD_TTL = 86400;
+	const DNS_DEFAULT_RECORD_PRIORITY = 0;
+
+	/**
+	 * Default Token settings
+	 */
+	const TOKEN_BACKEND = "PDO";
+	const TOKEN_DEFAULT_DURATION = 60;
+	const TOKEN_SECRET = "<%= @token %>";
+}
+?>
