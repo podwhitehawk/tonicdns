@@ -1,4 +1,5 @@
 # TonicDNS cookbook
+[![Build Status](https://secure.travis-ci.org/podwhitehawk/tonicdns.svg?branch=master)](http://travis-ci.org/podwhitehawk/tonicdns)
 
 This cookbook is used to install [TonicDNS](https://github.com/Cysource/TonicDNS) - a RESTful API for [PowerDNS](https://www.powerdns.com/).
 
