@@ -12,4 +12,4 @@ default["tonicdns"]["dbname"] = 'powerdns'
 default["tonicdns"]["user"] = 'tonicdns'
 default["tonicdns"]["user_email"] = 'sampleuser@example.org'
 
-default['apache']['listen_ports'] = [node["tonicdns"]["port"]]
+default['apache']['listen_ports'] = [node["tonicdns"]["http_port"]]

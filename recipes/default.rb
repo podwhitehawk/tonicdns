@@ -49,7 +49,7 @@ if node["tonicdns"]["git_install"]
   git "clone_tonicdns_repository" do
     repository node["tonicdns"]["git_repo"]
     destination node["tonicdns"]["install_dir"]
-    action :sync
+    action :checkout
   end
 else
   cookbook_file node["tonicdns"]["package_name"] do

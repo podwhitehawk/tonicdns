@@ -33,7 +33,7 @@ Should also work with other RHEL and Debian based distos, but not tested yet.
 
 `node["TonicDNS"]["install_dir"]` - Docroot for apache2 where TonicDNS will be located. Default - `/var/www/TonicDNS`
 
-`node["poweradmin"]["http_port"]` - port where TonicDNS API could be found. Default - `'8080'`
+`node["poweradmin"]["http_port"]` - port where TonicDNS API could be found. Default - `8080`
 
 `node["tonicdns"]["user"]` - User that will be created to serve API requests. Default - `tonicdns`
 
