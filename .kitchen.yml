@@ -28,6 +28,19 @@ platforms:
         memory: 384
       network:
         - ["forwarded_port", {guest: 8080, host: 7681}]
+  - name: centos-7.0
+    driver:
+      customize:
+        memory: 512
+      network:
+        - ["forwarded_port", {guest: 8080, host: 7081}]
+  - name: debian-6.0.10
+    driver:
+      customize:
+        memory: 384
+      network:
+        - ["forwarded_port", {guest: 8080, host: 6081}]
+
 
 suites:
   - name: default

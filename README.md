@@ -21,6 +21,8 @@ Tested and runs on:
 - Ubuntu 14.04
 - CentOS 6.5
 - Debian 7.6
+- CentOS 7
+- Debian 6
 
 Should also work with other RHEL and Debian based distos, but not tested yet.
 
