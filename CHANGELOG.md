@@ -1,3 +1,6 @@
+# 1.0.3
+* fixed tests to run against serverspec v2
+
 # 1.0.2
 * added support for centos7 and debian6
 
