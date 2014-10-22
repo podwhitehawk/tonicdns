@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-if ['Debian', 'Ubuntu'].include?(os[:family])
+if ['debian', 'ubuntu'].include?(os[:family])
   describe package('apache2') do
     it { should be_installed }
   end
@@ -14,7 +14,7 @@ if ['Debian', 'Ubuntu'].include?(os[:family])
   describe package('php5-mysql') do
     it { should be_installed }
   end
-elsif os[:family] == 'RedHat'
+elsif os[:family] == 'redhat'
   describe package('httpd') do
     it { should be_installed }
   end
@@ -34,12 +34,12 @@ describe port(8080) do
   it { should be_listening }
 end
 
-if ['Debian', 'Ubuntu'].include?(os[:family])
+if ['debian', 'ubuntu'].include?(os[:family])
   describe file('/etc/apache2/ports.conf') do
     it { should be_file }
     it { should contain 'Listen *:8080' }
   end
-elsif os[:family] == 'RedHat'
+elsif os[:family] == 'redhat'
   describe file('/etc/httpd/ports.conf') do
     it { should be_file }
     it { should contain 'Listen *:8080' }
@@ -47,14 +47,14 @@ elsif os[:family] == 'RedHat'
 end
 
 # tonicdns
-if ['Debian', 'Ubuntu'].include?(os[:family])
+if ['debian', 'ubuntu'].include?(os[:family])
   describe file('/etc/apache2/sites-enabled/tonicdns.conf') do
     it { should be_file }
     it { should contain 'DocumentRoot /var/www/tonicdns/docroot' }
     it { should contain 'Options +FollowSymLinks' }
     it { should contain 'AllowOverride All' }
   end
-elsif os[:family] == 'RedHat'
+elsif os[:family] == 'redhat'
   describe file('/etc/httpd/sites-enabled/tonicdns.conf') do
     it { should be_file }
     it { should contain 'DocumentRoot /var/www/tonicdns/docroot' }
@@ -63,13 +63,13 @@ elsif os[:family] == 'RedHat'
   end
 end
 
-if ['Debian', 'Ubuntu'].include?(os[:family])
+if ['debian', 'ubuntu'].include?(os[:family])
   describe file('/var/www/tonicdns') do
     it { should be_directory }
     it { should be_owned_by 'www-data' }
     it { should be_mode 750 }
   end
-elsif os[:family] == 'RedHat'
+elsif os[:family] == 'redhat'
   describe file('/var/www/tonicdns') do
     it { should be_directory }
     it { should be_owned_by 'apache' }
