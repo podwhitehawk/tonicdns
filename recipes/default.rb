@@ -105,15 +105,11 @@ end
 #marker for sql import
 file "/etc/.tonicdns_sql.imported"
 
-# getting md5 hash of user password
-require 'digest/md5'
-user_hash = Digest::MD5.hexdigest(node["tonicdns"]["password"])
-
 # add user
 mysql_database "add_tonicdns_user" do
   connection mysql_connection_info
   database_name node["tonicdns"]["dbname"]
-  sql "INSERT IGNORE INTO users VALUES (NULL, '#{node["tonicdns"]["user"]}', '#{user_hash}','TonicDNS user','#{node["tonicdns"]["user_email"]}','tonicdns api user',0,0,0);"
+  sql "INSERT IGNORE INTO users VALUES (NULL, '#{node["tonicdns"]["user"]}', '#{getMD5pass?}','TonicDNS user','#{node["tonicdns"]["user_email"]}','tonicdns api user',0,0,0);"
   action :query
 end
 

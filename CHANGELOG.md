@@ -1,3 +1,6 @@
+# 1.0.4
+* getting md5 hash of user password moved to library
+
 # 1.0.3
 * fixed tests to run against serverspec v2
 
